@@ -1,0 +1,24 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'cats/style.css' %}">
+
+<body>
+    <h2>
+        The Cats
+    </h2>
+    <div>
+        {% for image in images %}
+        <figure>
+          <img src="{{ image.url }}" alt="The Pulpit Rock" width="304" height="228">
+        </figure>
+        {% empty %}
+          <p>Oops. None image</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        <form action="{% url 'cats:home' %}" method="get">
+          <button>More</button>
+        </form>
+    </div>
+</body>
